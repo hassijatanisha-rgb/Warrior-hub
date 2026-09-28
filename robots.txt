@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hassijatanisha-rgb.github.io/Warrior-hub/sitemap.xml

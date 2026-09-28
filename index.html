@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="An independent directory of study, research, campus and wellbeing resources for University of Waterloo students." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="canonical" href="https://hassijatanisha-rgb.github.io/Warrior-hub/" />
   <title>Warrior Hub – UWaterloo Student Resources</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <style>
     :root {
       --gold: #C9A84C;
@@ -28,7 +29,7 @@
     body {
       background: var(--black);
       color: var(--text);
-      font-family: 'Inter', sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
     }
 
@@ -63,7 +64,7 @@
     }
 
     .nav-logo span {
-      font-family: 'Playfair Display', serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--gold-light);
@@ -133,7 +134,7 @@
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(3rem, 8vw, 6rem);
       font-weight: 800;
       line-height: 1.05;
@@ -241,7 +242,7 @@
     }
 
     .section-title-block h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 2rem;
       font-weight: 700;
       color: var(--text);
@@ -478,7 +479,16 @@
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      nav { padding: 0 14px; gap: 10px; }
+      .nav-logo span { display: none; }
+      .nav-links {
+        flex: 1;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        overscroll-behavior-inline: contain;
+      }
+      .nav-links a { display: block; padding: 10px 9px; }
       .hero h1 { font-size: 2.8rem; }
       section { padding: 60px 16px; }
     }
@@ -493,12 +503,42 @@
       color: var(--gold);
       background: rgba(201,168,76,0.08);
     }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: -80px;
+      z-index: 2000;
+      background: var(--gold-light);
+      color: #0a0a0a;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .skip-link:focus { top: 12px; }
+    :focus-visible { outline: 3px solid var(--gold-light); outline-offset: 3px; }
+    section { scroll-margin-top: calc(var(--nav-height) + 12px); }
+
+    .status-note {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-top: 18px;
+    }
+
+    .footer-utility { margin-top: 20px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to resources</a>
 
 <!-- ── NAVBAR ── -->
-<nav>
+<nav aria-label="Resource categories">
   <a href="#home" class="nav-logo">
     <div class="nav-logo-icon">⚔️</div>
     <span>Warrior Hub</span>
@@ -516,11 +556,13 @@
   </ul>
 </nav>
 
+<main id="main-content">
+
 <!-- ── HERO ── -->
 <div id="home" class="hero">
   <div class="hero-badge">
-    <i class="fa-solid fa-shield-halved"></i>
-    University of Waterloo
+    <span aria-hidden="true">◆</span>
+    Independent student directory
   </div>
   <h1>Your Student <span class="gold">Command</span><br>Centre</h1>
   <p>Everything a Waterloo student needs — organized, curated, and one click away.</p>
@@ -530,7 +572,7 @@
   </div>
   <div class="scroll-indicator">
     <span>Scroll</span>
-    <i class="fa-solid fa-chevron-down"></i>
+    <span aria-hidden="true">↓</span>
   </div>
 </div>
 
@@ -538,44 +580,44 @@
 <div class="section-wrapper">
 <section id="citing">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-quote-left"></i></div>
+    <div class="section-icon" aria-hidden="true">❝</div>
     <div class="section-title-block">
       <h2>Citing Sources</h2>
       <p>Reference managers and citation formatters for every style — APA, MLA, Chicago, and more.</p>
     </div>
   </div>
   <div class="cards-grid">
-    <a href="https://www.zotero.org" target="_blank" class="card">
+    <a href="https://www.zotero.org" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📚</div>
       <div class="card-title">Zotero</div>
       <div class="card-desc">Powerful free reference manager. Save sources, organize your library, and auto-generate citations.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://owl.purdue.edu/owl/research_and_citation/resources.html" target="_blank" class="card">
+    <a href="https://owl.purdue.edu/owl/research_and_citation/resources.html" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🦉</div>
       <div class="card-title">Purdue OWL</div>
       <div class="card-desc">The gold standard for citation guidance. Covers APA, MLA, Chicago, and more with clear examples.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.mybib.com" target="_blank" class="card">
+    <a href="https://www.mybib.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📝</div>
       <div class="card-title">MyBib</div>
       <div class="card-desc">Clean, fast, and free citation generator. Paste a URL or ISBN and get a formatted citation instantly.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://citation.crosscite.org" target="_blank" class="card">
+    <a href="https://citation.crosscite.org" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🔗</div>
       <div class="card-title">DOI Citation Formatter</div>
       <div class="card-desc">Official CrossCite tool — paste any DOI and download a perfectly formatted citation in 500+ styles.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.citethisforme.com" target="_blank" class="card">
+    <a href="https://www.citethisforme.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">✍️</div>
       <div class="card-title">Cite This For Me</div>
       <div class="card-desc">User-friendly citation builder supporting APA, MLA, Harvard, and other formats.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://www.mendeley.com" target="_blank" class="card">
+    <a href="https://www.mendeley.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🗂️</div>
       <div class="card-title">Mendeley</div>
       <div class="card-desc">Reference manager and academic social network. Annotate PDFs and collaborate with peers.</div>
@@ -589,44 +631,44 @@
 <div class="section-wrapper">
 <section id="library">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-building-columns"></i></div>
+    <div class="section-icon" aria-hidden="true">▦</div>
     <div class="section-title-block">
       <h2>Library & Databases</h2>
       <p>Access UWaterloo's library, academic journals, and databases to find credible research.</p>
     </div>
   </div>
   <div class="cards-grid">
-    <a href="https://library.uwaterloo.ca" target="_blank" class="card">
+    <a href="https://lib.uwaterloo.ca/web/" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🏛️</div>
       <div class="card-title">UW Library</div>
       <div class="card-desc">Your primary resource — search the catalogue, access databases, book study rooms, and get help from librarians.</div>
       <span class="card-tag tag-uw">UWaterloo</span>
     </a>
-    <a href="https://scholar.google.com" target="_blank" class="card">
+    <a href="https://scholar.google.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🔍</div>
       <div class="card-title">Google Scholar</div>
       <div class="card-desc">Search millions of scholarly articles, theses, and books across disciplines.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.jstor.org" target="_blank" class="card">
+    <a href="https://www.jstor.org" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📰</div>
       <div class="card-title">JSTOR</div>
       <div class="card-desc">Digital library of academic journals, books, and primary sources. Access via UW Library for full articles.</div>
       <span class="card-tag tag-uw">Via UW</span>
     </a>
-    <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" class="card">
+    <a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🧬</div>
       <div class="card-title">PubMed</div>
       <div class="card-desc">Free database of biomedical and life science literature from the National Library of Medicine.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.semanticscholar.org" target="_blank" class="card">
+    <a href="https://www.semanticscholar.org" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🤖</div>
       <div class="card-title">Semantic Scholar</div>
       <div class="card-desc">AI-powered research tool to quickly extract key findings and find relevant papers.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.worldcat.org" target="_blank" class="card">
+    <a href="https://www.worldcat.org" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🌍</div>
       <div class="card-title">WorldCat</div>
       <div class="card-desc">Find books and materials from libraries worldwide. Check if UW or local libraries have what you need.</div>
@@ -640,44 +682,44 @@
 <div class="section-wrapper">
 <section id="notes">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+    <div class="section-icon" aria-hidden="true">✎</div>
     <div class="section-title-block">
       <h2>Notes Apps</h2>
       <p>Capture, organize, and review your notes with tools built for how students actually think.</p>
     </div>
   </div>
   <div class="cards-grid">
-    <a href="https://www.notion.so" target="_blank" class="card">
+    <a href="https://www.notion.so" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">⬛</div>
       <div class="card-title">Notion</div>
       <div class="card-desc">All-in-one workspace for notes, databases, wikis, and projects. Incredibly flexible for students.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://obsidian.md" target="_blank" class="card">
+    <a href="https://obsidian.md" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">💎</div>
       <div class="card-title">Obsidian</div>
       <div class="card-desc">Local-first markdown notes with linked thinking. Build your own "second brain" for courses.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.onenote.com" target="_blank" class="card">
+    <a href="https://www.onenote.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📓</div>
       <div class="card-title">Microsoft OneNote</div>
       <div class="card-desc">Free with your UWaterloo Microsoft 365 account. Great for handwriting, diagrams, and course notes.</div>
       <span class="card-tag tag-uw">Free via UW</span>
     </a>
-    <a href="https://logseq.com" target="_blank" class="card">
+    <a href="https://logseq.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🧠</div>
       <div class="card-title">Logseq</div>
       <div class="card-desc">Open-source knowledge graph and outliner. Excellent for connecting ideas across courses.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://keep.google.com" target="_blank" class="card">
+    <a href="https://keep.google.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📌</div>
       <div class="card-title">Google Keep</div>
       <div class="card-desc">Quick, lightweight note-taking. Perfect for to-do lists, voice memos, and quick captures.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://evernote.com" target="_blank" class="card">
+    <a href="https://evernote.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🐘</div>
       <div class="card-title">Evernote</div>
       <div class="card-desc">Clip web pages, scan documents, and organize notes in searchable notebooks.</div>
@@ -691,44 +733,44 @@
 <div class="section-wrapper">
 <section id="research">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-microscope"></i></div>
+    <div class="section-icon" aria-hidden="true">⌕</div>
     <div class="section-title-block">
       <h2>Research Tools</h2>
       <p>Find papers, explore connections, and use AI to power your academic research.</p>
     </div>
   </div>
   <div class="cards-grid">
-    <a href="https://www.connectedpapers.com" target="_blank" class="card">
+    <a href="https://www.connectedpapers.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🕸️</div>
       <div class="card-title">Connected Papers</div>
       <div class="card-desc">Visual graph tool — find related papers by showing citation connections. Great for literature reviews.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://elicit.com" target="_blank" class="card">
+    <a href="https://elicit.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🔬</div>
       <div class="card-title">Elicit</div>
       <div class="card-desc">AI research assistant that searches academic papers and summarizes findings. Fast literature reviews.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://www.researchrabbit.ai" target="_blank" class="card">
+    <a href="https://www.researchrabbit.ai" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🐇</div>
       <div class="card-title">Research Rabbit</div>
       <div class="card-desc">Free tool that finds related papers and tracks new publications in your area of interest.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.perplexity.ai" target="_blank" class="card">
+    <a href="https://www.perplexity.ai" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">✨</div>
       <div class="card-title">Perplexity AI</div>
       <div class="card-desc">AI search engine that cites real sources. Great for getting a grounded overview of any research topic.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://www.researchgate.net" target="_blank" class="card">
+    <a href="https://www.researchgate.net" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🌐</div>
       <div class="card-title">ResearchGate</div>
       <div class="card-desc">Academic social network — find papers, request full texts directly from authors, and follow researchers.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://typeset.io" target="_blank" class="card">
+    <a href="https://scispace.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📄</div>
       <div class="card-title">SciSpace (Typeset)</div>
       <div class="card-desc">Chat with research papers — upload a PDF and ask it questions to extract key insights fast.</div>
@@ -742,44 +784,45 @@
 <div class="section-wrapper">
 <section id="mental-health">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-heart"></i></div>
+    <div class="section-icon" aria-hidden="true">♥</div>
     <div class="section-title-block">
       <h2>Mental Health & Wellness</h2>
-      <p>You matter beyond your grades. These resources are here whenever you need support.</p>
+      <p>Official campus and community support links for routine, urgent and after-hours needs.</p>
     </div>
   </div>
+  <p class="status-note">If you or someone else is in immediate danger, call 911. For current urgent and after-hours options, use the University of Waterloo's <a href="https://uwaterloo.ca/health/resources-services/get-mental-health-support-when-you-need-it" target="_blank" rel="noopener noreferrer" style="color:var(--gold-light);">official support page</a>.</p>
   <div class="cards-grid">
-    <a href="https://uwaterloo.ca/campus-wellness/counselling-services" target="_blank" class="card">
+    <a href="https://uwaterloo.ca/campus-wellness/counselling-services" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🏫</div>
       <div class="card-title">UW Counselling Services</div>
-      <div class="card-desc">Free counselling for full-time UW students. Book individual, group, or same-day urgent sessions.</div>
+      <div class="card-desc">No-charge counselling appointments for eligible registered and co-op students. Review current eligibility and booking details on the official page.</div>
       <span class="card-tag tag-uw">UWaterloo</span>
     </a>
-    <a href="https://here247.ca" target="_blank" class="card">
+    <a href="https://here247.ca" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📞</div>
       <div class="card-title">Here 24/7</div>
-      <div class="card-desc">24/7 crisis line for Waterloo Region. Call or text anytime — crisis support, counselling, and distress line.</div>
+      <div class="card-desc">Waterloo Region mental-health, addictions and crisis service. Use its official site for current contact options.</div>
       <span class="card-tag tag-crisis">Crisis Line</span>
     </a>
-    <a href="https://good2talk.ca" target="_blank" class="card">
+    <a href="https://good2talk.ca" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">💬</div>
       <div class="card-title">Good2Talk</div>
-      <div class="card-desc">Free, confidential helpline for post-secondary students in Ontario. Available 24/7 by call or text.</div>
+      <div class="card-desc">Support service for post-secondary students in Ontario. Check the official site for current phone and text options.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.headspace.com" target="_blank" class="card">
+    <a href="https://www.headspace.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🧘</div>
       <div class="card-title">Headspace</div>
       <div class="card-desc">Guided meditation, sleep tools, and stress relief. Discounted for students — great for exam season.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://www.calm.com" target="_blank" class="card">
+    <a href="https://www.calm.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🌙</div>
       <div class="card-title">Calm</div>
       <div class="card-desc">Sleep stories, breathing exercises, and mindfulness meditations to manage anxiety and burnout.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://uwaterloo.ca/campus-wellness/" target="_blank" class="card">
+    <a href="https://uwaterloo.ca/campus-wellness/" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">💛</div>
       <div class="card-title">UW Campus Wellness</div>
       <div class="card-desc">Connects you to all health and wellness programs at Waterloo — health services, counselling, accessibility, and more.</div>
@@ -793,44 +836,44 @@
 <div class="section-wrapper">
 <section id="organization">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+    <div class="section-icon" aria-hidden="true">✓</div>
     <div class="section-title-block">
       <h2>Organization Tools</h2>
       <p>Stay on top of assignments, deadlines, and projects with tools that work for you.</p>
     </div>
   </div>
   <div class="cards-grid">
-    <a href="https://todoist.com" target="_blank" class="card">
+    <a href="https://todoist.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">✅</div>
       <div class="card-title">Todoist</div>
       <div class="card-desc">Elegant task manager with due dates, priorities, and recurring tasks. One of the best for student life.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://trello.com" target="_blank" class="card">
+    <a href="https://trello.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📋</div>
       <div class="card-title">Trello</div>
       <div class="card-desc">Kanban-style boards for visual project management. Great for group projects and assignment tracking.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://calendar.google.com" target="_blank" class="card">
+    <a href="https://calendar.google.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📅</div>
       <div class="card-title">Google Calendar</div>
-      <div class="card-desc">Free and syncs everywhere. Block out study time, set class schedules, and never miss a deadline.</div>
+      <div class="card-desc">Calendar and reminder tool for class schedules, study blocks and assignment due dates.</div>
       <span class="card-tag tag-free">Free</span>
     </a>
-    <a href="https://www.forestapp.cc" target="_blank" class="card">
+    <a href="https://www.forestapp.cc" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🌳</div>
       <div class="card-title">Forest App</div>
       <div class="card-desc">Stay off your phone by growing virtual trees. Combines the Pomodoro technique with real-world tree planting.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://clickup.com" target="_blank" class="card">
+    <a href="https://clickup.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🚀</div>
       <div class="card-title">ClickUp</div>
       <div class="card-desc">Powerful all-in-one productivity platform. Tasks, docs, goals, and time tracking in one place.</div>
       <span class="card-tag tag-freemium">Freemium</span>
     </a>
-    <a href="https://habitica.com" target="_blank" class="card">
+    <a href="https://habitica.com" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">⚔️</div>
       <div class="card-title">Habitica</div>
       <div class="card-desc">Gamified habit and task tracker — turn your daily study routines into RPG quests and level up.</div>
@@ -844,42 +887,42 @@
 <div class="section-wrapper">
 <section id="study-tips">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-lightbulb"></i></div>
+    <div class="section-icon" aria-hidden="true">◉</div>
     <div class="section-title-block">
       <h2>Study Tips & Techniques</h2>
-      <p>Evidence-backed strategies that top students swear by — plus tools to implement them.</p>
+      <p>Common study approaches to test against your course, schedule and learning needs.</p>
     </div>
   </div>
   <div class="tips-grid">
     <div class="tip-card">
       <div class="tip-number">01</div>
       <div class="tip-title">Pomodoro Technique</div>
-      <div class="tip-desc">Study for 25 minutes, take a 5-minute break. After 4 rounds, take a 20-minute rest. Prevents burnout and maintains focus. Try <a href="https://pomofocus.io" target="_blank" style="color:var(--gold);">Pomofocus.io</a> to get started.</div>
+      <div class="tip-desc">Try a 25-minute work period followed by a 5-minute break, then adjust the interval if a different rhythm works better for the task. <a href="https://pomofocus.io" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">Pomofocus.io</a> provides a simple timer.</div>
     </div>
     <div class="tip-card">
       <div class="tip-number">02</div>
       <div class="tip-title">Active Recall with Anki</div>
-      <div class="tip-desc">Don't just re-read notes — test yourself. <a href="https://apps.ankiweb.net" target="_blank" style="color:var(--gold);">Anki</a> uses spaced repetition to help you memorize information permanently, not just for the night before.</div>
+      <div class="tip-desc">Turn material into questions and test what you can retrieve without looking. <a href="https://apps.ankiweb.net" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">Anki</a> can schedule repeated review.</div>
     </div>
     <div class="tip-card">
       <div class="tip-number">03</div>
       <div class="tip-title">The Feynman Technique</div>
-      <div class="tip-desc">Explain a concept as if teaching it to someone else. If you can't, you don't understand it yet. This exposes gaps faster than re-reading ever could.</div>
+      <div class="tip-desc">Explain a concept in plain language, then check the explanation against your course material. Mark any step you could not explain precisely for review.</div>
     </div>
     <div class="tip-card">
       <div class="tip-number">04</div>
       <div class="tip-title">Practice with Past Exams</div>
-      <div class="tip-desc">UW professors often recycle question styles. Use <a href="https://www.cemc.uwaterloo.ca" target="_blank" style="color:var(--gold);">CEMC</a> and department pages to find past papers and time yourself under exam conditions.</div>
+      <div class="tip-desc">Use instructor-provided practice material and authorized past exams to rehearse the format and timing. <a href="https://cemc.uwaterloo.ca" target="_blank" rel="noopener noreferrer" style="color:var(--gold);">CEMC</a> publishes mathematics and computing contest material.</div>
     </div>
     <div class="tip-card">
       <div class="tip-number">05</div>
       <div class="tip-title">Interleaving Subjects</div>
-      <div class="tip-desc">Switch between subjects rather than blocking one for an entire session. It feels harder but research shows you retain more and perform better on tests.</div>
+      <div class="tip-desc">Mix a small set of related problem types during review, then check whether you can identify which method applies before solving each one.</div>
     </div>
     <div class="tip-card">
       <div class="tip-number">06</div>
       <div class="tip-title">Sleep Is Non-Negotiable</div>
-      <div class="tip-desc">Memory consolidation happens during sleep. Pulling all-nighters before exams actively harms performance. Aim for 7–8 hours — especially in finals season.</div>
+      <div class="tip-desc">Protect a regular sleep schedule during busy weeks. If sleep problems persist or affect daily life, use a qualified health resource rather than relying on study advice.</div>
     </div>
   </div>
 </section>
@@ -889,44 +932,44 @@
 <div class="section-wrapper">
 <section id="campus">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-university"></i></div>
+    <div class="section-icon" aria-hidden="true">⌂</div>
     <div class="section-title-block">
       <h2>Campus Links</h2>
       <p>Fast access to the UWaterloo portals and tools you use every single day.</p>
     </div>
   </div>
   <div class="cards-grid">
-    <a href="https://uwaterloo.ca/quest" target="_blank" class="card">
+    <a href="https://uwaterloo.ca/quest" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🎓</div>
       <div class="card-title">Quest</div>
       <div class="card-desc">Manage your course enrollment, view grades, pay fees, and handle everything academic-admin.</div>
       <span class="card-tag tag-uw">UWaterloo</span>
     </a>
-    <a href="https://learn.uwaterloo.ca" target="_blank" class="card">
+    <a href="https://learn.uwaterloo.ca" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📖</div>
       <div class="card-title">LEARN (D2L)</div>
       <div class="card-desc">Your course hub — find assignments, lecture slides, announcements, and grades from all your courses.</div>
       <span class="card-tag tag-uw">UWaterloo</span>
     </a>
-    <a href="https://mail.uwaterloo.ca" target="_blank" class="card">
+    <a href="https://mail.uwaterloo.ca" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">📧</div>
       <div class="card-title">UW Email</div>
       <div class="card-desc">Your official @uwaterloo.ca Microsoft Outlook email. Check it regularly for academic and co-op updates.</div>
       <span class="card-tag tag-uw">UWaterloo</span>
     </a>
-    <a href="https://waterlooworks.uwaterloo.ca" target="_blank" class="card">
+    <a href="https://waterlooworks.uwaterloo.ca" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">💼</div>
       <div class="card-title">WaterlooWorks</div>
       <div class="card-desc">The co-op job portal. Browse and apply to thousands of postings each term during your co-op cycle.</div>
       <span class="card-tag tag-uw">UWaterloo</span>
     </a>
-    <a href="https://watcard.uwaterloo.ca" target="_blank" class="card">
+    <a href="https://watcard.uwaterloo.ca" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">💳</div>
       <div class="card-title">WatCard</div>
       <div class="card-desc">Manage your campus card, check your balance, add funds, and view transaction history.</div>
       <span class="card-tag tag-uw">UWaterloo</span>
     </a>
-    <a href="https://bookstore.uwaterloo.ca" target="_blank" class="card">
+    <a href="https://bookstore.uwaterloo.ca" target="_blank" rel="noopener noreferrer" class="card">
       <div class="card-icon">🛒</div>
       <div class="card-title">UW Bookstore</div>
       <div class="card-desc">Find required course materials, merchandise, and supplies. Check for used textbooks to save money.</div>
@@ -940,55 +983,58 @@
 <div class="section-wrapper">
 <section id="calendar">
   <div class="section-header">
-    <div class="section-icon"><i class="fa-solid fa-calendar-days"></i></div>
+    <div class="section-icon" aria-hidden="true">□</div>
     <div class="section-title-block">
       <h2>Academic Calendar</h2>
-      <p>Key dates for the current academic year — never miss a deadline, exam, or registration window.</p>
+      <p>Selected Fall 2026 undergraduate dates from the official University of Waterloo Important Dates service.</p>
     </div>
   </div>
   <div class="calendar-box">
     <div class="calendar-dates">
       <div class="cal-item">
-        <div class="cal-date-box"><div class="cal-month">May</div><div class="cal-day">05</div></div>
-        <div><div class="cal-info-title">Spring Term Begins</div><div class="cal-info-desc">Classes start for Spring 2026 term</div></div>
+        <div class="cal-date-box"><div class="cal-month">Oct</div><div class="cal-day">02</div></div>
+        <div><div class="cal-info-title">Final examination schedule released</div><div class="cal-info-desc">Students can view their Fall 2026 schedule in the authenticated examination service.</div></div>
       </div>
       <div class="cal-item">
-        <div class="cal-date-box"><div class="cal-month">May</div><div class="cal-day">15</div></div>
-        <div><div class="cal-info-title">Course Add Deadline</div><div class="cal-info-desc">Last day to add or swap courses without penalty</div></div>
+        <div class="cal-date-box"><div class="cal-month">Oct</div><div class="cal-day">10</div></div>
+        <div><div class="cal-info-title">Reading Week begins</div><div class="cal-info-desc">Reading Week runs from October 10 through October 18.</div></div>
       </div>
       <div class="cal-item">
-        <div class="cal-date-box"><div class="cal-month">Jun</div><div class="cal-day">20</div></div>
-        <div><div class="cal-info-title">Course Drop Deadline</div><div class="cal-info-desc">Last day to drop a course without academic penalty</div></div>
+        <div class="cal-date-box"><div class="cal-month">Oct</div><div class="cal-day">16</div></div>
+        <div><div class="cal-info-title">Online examination arrangements due</div><div class="cal-info-desc">Deadline for eligible online-course exam-centre or proctor submissions. Check the official entry for conditions.</div></div>
       </div>
       <div class="cal-item">
-        <div class="cal-date-box"><div class="cal-month">Jul</div><div class="cal-day">01</div></div>
-        <div><div class="cal-info-title">Canada Day – No Classes</div><div class="cal-info-desc">University holiday — classes cancelled</div></div>
+        <div class="cal-date-box"><div class="cal-month">Nov</div><div class="cal-day">24</div></div>
+        <div><div class="cal-info-title">Drop with WD ends</div><div class="cal-info-desc">Last day to drop a Fall 2026 class and receive a WD grade.</div></div>
       </div>
       <div class="cal-item">
-        <div class="cal-date-box"><div class="cal-month">Jul</div><div class="cal-day">28</div></div>
-        <div><div class="cal-info-title">Last Day of Classes</div><div class="cal-info-desc">Final lecture day for Spring 2026 term</div></div>
+        <div class="cal-date-box"><div class="cal-month">Dec</div><div class="cal-day">08</div></div>
+        <div><div class="cal-info-title">Classes end</div><div class="cal-info-desc">Fall 2026 formal lecture period ends.</div></div>
       </div>
       <div class="cal-item">
-        <div class="cal-date-box"><div class="cal-month">Aug</div><div class="cal-day">04</div></div>
-        <div><div class="cal-info-title">Final Exams Begin</div><div class="cal-info-desc">Spring 2026 final examination period starts</div></div>
+        <div class="cal-date-box"><div class="cal-month">Dec</div><div class="cal-day">10</div></div>
+        <div><div class="cal-info-title">Final examination period begins</div><div class="cal-info-desc">The Fall 2026 examination period runs through December 23, including emergency days.</div></div>
       </div>
     </div>
     <div style="margin-top: 8px; display: flex; gap: 12px; flex-wrap: wrap;">
-      <a href="https://uwaterloo.ca/registrar/important-dates" target="_blank" class="btn-primary" style="font-size:0.82rem; padding:10px 20px;">
-        <i class="fa-solid fa-arrow-up-right-from-square" style="margin-right:6px;"></i>View Full Academic Calendar
+      <a href="https://uwaterloo.ca/important-dates/undergraduate" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:0.82rem; padding:10px 20px;">
+        View all official important dates
       </a>
-      <a href="https://ugradcalendar.uwaterloo.ca" target="_blank" class="btn-secondary" style="font-size:0.82rem; padding:10px 20px;">
+      <a href="https://ugradcalendar.uwaterloo.ca" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size:0.82rem; padding:10px 20px;">
         Undergrad Calendar
       </a>
     </div>
+    <p class="status-note">Last checked 29 September 2026. Dates can change and may differ by academic career or course. Confirm every deadline in the official service before acting.</p>
   </div>
 </section>
 </div>
 
+</main>
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-logo">⚔️ Warrior Hub</div>
-  <p>A student resource directory for the University of Waterloo community. Not officially affiliated with UWaterloo.</p>
+  <p>An independent student resource directory. Warrior Hub is not affiliated with, sponsored by or endorsed by the University of Waterloo. University and third-party names belong to their respective owners.</p>
   <div class="footer-links">
     <a href="#citing">Citing Sources</a>
     <a href="#library">Library</a>
@@ -999,6 +1045,12 @@
     <a href="#study-tips">Study Tips</a>
     <a href="#campus">Campus</a>
     <a href="#calendar">Calendar</a>
+  </div>
+  <div class="footer-links footer-utility">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms and source notes</a>
+    <a href="accessibility.html">Accessibility</a>
+    <a href="https://github.com/hassijatanisha-rgb/Warrior-hub/issues/new?title=Warrior%20Hub%20resource%20correction">Report a broken or inaccurate resource</a>
   </div>
   <p style="margin-top:20px; font-size:0.72rem;">Made with 💛 for Warriors everywhere</p>
 </footer>
